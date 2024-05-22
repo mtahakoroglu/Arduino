@@ -10,30 +10,46 @@
     <li align="justify">Aşağıdaki devre şemasında <b>loop()</b> foksiyonunda {a, b, c, d, e, f, g, h} değerleri oluşturulurken % operatörü kullanıldığı görülüyor. Bu ne manaya geliyor? Onluk sistemde bir byte'dan büyük olmayan bir sayıyı (e.g., 237) ikili sisteme çevirerek örnek üzerinde açıklayınız.</li>
 </ul>
 
-<img src="image/binary counter 8 bit.png" alt="Arduino binary counter circuit." width=400 height=auto>
+<img src="image/binary counter 8 bit.png" alt="Arduino binary counter circuit." width=500 height=auto>
 
 <h3>Üstten Basmalı Anahtar ile Dijital Giriş</h3>
 <h3>Using Toggle Switch as Digital Input</h3>
 
 <p align="justify">Bir önceki projede led'lerin yanma süresi sabitti. Burada o süreyi potansiyometreden okuduğumuz değerle doğru orantılı olacak bir şekilde ayarlıyoruz. Potansiyometre ile analog girişin kullanımı aşağıdaki kare dalga üreteci projesinde de yer alıyor.</p>
 
-<img src="image/binary counter toggle switch.png" alt="Arduino binary counter circuit with toggle switch input." width=400 height=auto>
+<img src="image/binary counter toggle switch.png" alt="Arduino binary counter circuit with toggle switch input." width=500 height=auto>
 
 <h3>Potansiyometre ile Analog Girişi Kullanımı (Using Analog Inputs with Potentiometer)</h3>
 
-<img src="image/pot.jpg" alt="Potansiyometre" width=auto height=200>
-<img src="image/potansiyometre bağlantılar.jpg" alt="Reading pot data into Arduino via ADC." width=auto height=200>
+#### Potansiyometre
 
-<h3>Kare Dalga Üreteci</h3>
-<h3>Square Wave Generator</h3>
+<p align="justify">Potansiyometreye ayarlı direnç dendiğinden daha önce bahsetmiştik. Bu devre elemanının;</p>
+<ul>
+<li align="justify">Üç bacağı olduğunu,</li>
+<li align="justify">İlk ve son bacaklarına Arduino'nun Vcc (5V) ve GND pinlerinin bağlandığını</li>
+<li align="justify">Orta bacağının Arduino'nun analog girişlerinden bir tanesine (e.g., A0) bağlandığını</li>
+<li align="justify">Analogdan dijitale çevirici (Analog to Digital Converter - ADC) aracılığıyla [0-5V] aralığında sürekli (continuous) değer alabilen analog bir sinyalin, [0-1023] aralığında bir tam sayıya (integer) dönüştürülerek alındığını,</li>
+</ul>
 
-<img src="image/square wave generator.png" alt="Sqare wave generator with Arduino." width=400 height=auto>
+<p align="justify">görmüştük. Bir potansiyometreyi ve yukarıda listelenen Arduino bağlantılarını aşağıda görebilirsiniz.</p>
+
+<img src="image/pot.jpg" alt="Potansiyometre" width=auto height=200> <img src="image/potansiyometre bağlantılar.jpg" alt="Reading pot data into Arduino via ADC." width=auto height=200>
+
+<h3>Kare Dalga Üreteci (Square Wave Generator)</h3>
+
+<p>Bu deneyimizde Arduino dijital çıkışlarından 13 no'lu pin olan D13'e hoparlör (veya buzzer) bağlayarak görev süresi (duty cycle) %50 olan frekansı otansiyometre tarafından manuel olarak ayarlanan kare dalga ürettik. Bu sinyali üstten basmalı anahtara (toggle switch) bastığımızda işitirken osiloskopta iki farklı hâlde görüntüledik.</p>
+
+<ul>
+    <li align="justify">Yukarıda üstten basmalı anahtara basıldığında sinyalin bir hâlden başka bir hâle geldiği belirtiliyor. Bu durum neydi?</li>
+</ul>
+
+<img src="image/square wave generator.png" alt="Sqare wave generator with Arduino." width=500 height=auto>
 
 <h3>MPU6050 Hareket Sensörü Kullanımı (Using MPU6050 Motion Sensor)</h3>
 
 <p align="justify">MPU6050 sensörü verisini Arduino'ya <a href="https://github.com/tockn/MPU6050_tockn" target="_blank">MPU6050_tockn</a> kütüphanesi yardımıyla okuyup Euler açılarını Arduino'nun seri port ekranında görüntüledik. Bu kütüphaneden esinlenerek bazı değişik özellikler ekleyip (e.g., sensör örnekleme frekansını ayarlama seçeneği, ivmemetre ve jiroskop verisi hassasiyeti ve max-min ölçüm değerleri) kendi kütüphanemiz olan <a href="https://github.com/mtahakoroglu/MPU6050_ZUPT" target="_blank">MPU6050_ZUPT</a> kütüphanesini oluşturduk. Bu kütüphaneye yapay zekâ yardımıyla yazdırdığımız Python kodlarını da ekleyerek MPU6050 verilerini gerçek zamanda <b>pygame</b> ve <b>matplotlib</b> paketleriyle görselleştirdik.</p>
 
-<img src="image/arduino_mpu6050_electronoobs.png" alt="MPU6050 - Arduino connections" width=300 height=auto>
+<img src="image/arduino_mpu6050_electronoobs.png" alt="MPU6050 - Arduino connections" width=500 height=auto>
 
 <h3>MPU6050 ile hesaplanan yunuslama açısı ile fırçasız motor hız kontrolü (Controlling brushless motor speed using pitch angle estimated with MPU6050)</h3>
 
