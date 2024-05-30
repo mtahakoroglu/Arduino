@@ -43,6 +43,32 @@
 
 <img src="image/square wave generator.png" alt="Sqare wave generator with Arduino." width=500 height=auto>
 
+<h3>Joystick ile Fırçasız Motor Manuel Hız Kontrolü (PWM sinyali ile)</h3>
+
+<p align="justify">Robotikte karşımıza çıkan motorlardan bazıları DC motor, adım (step) motor, servo motor ve fırçasız (brushless) motorlardır. Bunlardan RC modellerde yâni model uçak, araba, dronlarda sıklıkla kullanılan servo ve fırçasız motorları kontrol etmek için darbe genişlik modülasyonu (pulse width modulation - PWM) denilen bir metot var. Arduino kullanıcıları bu sinyali oluşturmak için özel bir kütüphane oluşturmuş. Bunun ismi Servo kütüphanesi. Arduino üzerindeki dijital pinlerden {3,5,6,9,10,11} no'lu olanlar (Arduino üzerinde ~ işaretinden anlayabilirsiniz) pwm sinyali üretmek için kullanılabilir. Aşağıdaki kodda D9 pininin pwm çıkışı olarak seçildiğini görebilirsiniz.</p>
+
+<b>pwm_motor_control.ino</b>
+
+```
+#include <Servo.h>
+Servo motor;
+int analogPin = A2; // [0-5]V
+
+void setup() {
+  motor.attach(9); // pwm sinyali D9
+}
+
+void loop() {
+   int x = analogRead(analogPin); // [0-1023]
+   // int y = map(x, 0, 1023, 0, 180);
+   int z = map(x, 0, 1023, 1000, 2000);
+   // motor.write(y);
+   motor.writeMicroseconds(z);
+}
+```
+
+<p align="justify">Pinlerden D9 pwm çıkışı olarak fırçasız motora bağlanıyor. Elimizde bulunna eski bir dron kumandasının içine bir tane Arduino Pro Mini koyduk. Dron kumandasında dört adet potansiyometre var. Yâni iki adet joystick ediyor. Bunlardan birisi dronu yukarı-aşağı çıkarmak için kulllanılan THROTTLE denilen kanal. Biz bu potansiyometreyi A2 girişinden okuyup, yâni <b>int x = analogRead(A2)</b> komutuyla [0-5]V --> [0-1023] dönüşümünü yaptıktan sonra, Arduino'nun bize sağladığı map() fonksiyonuyla [1000-2000]us pwm sinyaline çevirip fırçasız motorun ESC denilen motor sürücü devresine uyguluyoruz. İlgili deneyi izlemek için video <a href="https://youtu.be/keFDfk8HNUE">buradadır</a>.</p>
+
 <h3>MPU6050 Hareket Sensörü Kullanımı (Using MPU6050 Motion Sensor)</h3>
 
 <p align="justify">MPU6050 sensörü verisini Arduino'ya <a href="https://github.com/tockn/MPU6050_tockn" target="_blank">MPU6050_tockn</a> kütüphanesi yardımıyla okuyup Euler açılarını Arduino'nun seri port ekranında görüntüledik. Bu kütüphaneden esinlenerek bazı değişik özellikler ekleyip (e.g., sensör örnekleme frekansını ayarlama seçeneği, ivmemetre ve jiroskop verisi hassasiyeti ve max-min ölçüm değerleri) kendi kütüphanemiz olan <a href="https://github.com/mtahakoroglu/MPU6050_ZUPT" target="_blank">MPU6050_ZUPT</a> kütüphanesini oluşturduk. Bu kütüphaneye yapay zekâ yardımıyla yazdırdığımız Python kodlarını da ekleyerek MPU6050 verilerini gerçek zamanda <b>pygame</b> ve <b>matplotlib</b> paketleriyle <a href="https://www.youtube.com/watch?v=-zqW5ccxTFk">görselleştirdik</a>.</p>
