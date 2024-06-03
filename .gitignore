@@ -1,5 +1,9 @@
+/circuit
+/component
 /drawing
 /exam
-/media
+/meet
+/lecture
 .gitignore
 CH341SER.exe
+commands.txt

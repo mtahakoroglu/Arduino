@@ -1,8 +1,8 @@
-## Arduino Projeleri
+## Arduino Deneyleri ve Projeleri
 ### İkili sistem sayıcı (dijital pinleri çıkış olarak kullanma)
 ### Binary Counter (using digital pins as output)
 
-<p align="justify">Derste <b>binary</b> kelimesinin ikili sistem yâni 1 ve 0'lardan oluşan sistem olduğunu görmüştük. Bu kavramı sayısal tasarım (mantıksal devre tasarımı - logic circuits) dersinde True - False veya logic 1 - logic 0 olarak, Arduino'nun kendi ekosisteminde de özel tanımlanmış bir kelime olan HIGH - LOW ile görebilirsiniz. Buna Boolean cebir (Boolean algebra) deniyor.</p>
+<p align="justify">Derste <b>binary</b> kelimesinin ikili sistem yâni 1 ve 0'lardan oluşan sistem olduğunu görmüştük. Bu kavrama sayısal tasarım (mantıksal devre tasarımı - logic circuits) dersinde True - False veya logic 1 - logic 0 olarak, Arduino'nun kendi ekosisteminde de özel tanımlanmış anahtar kelimeler olan HIGH-LOW ifadeleri şeklinde karşılaşabilirsiniz. Buna Boolean cebir (Boolean algebra) deniyor. Yapılan ilk deneyi izlemek için <a href="https://youtu.be/s3wDtmzlwCw">tıklayınız.</a></p>
 
 <h4>Örnek Sınav Soruları</h4>
 <ul>
@@ -12,14 +12,14 @@
 
 <img src="image/binary counter 8 bit.png" alt="Arduino binary counter circuit." width=500 height=auto>
 
-<h3>Üstten Basmalı Anahtar ile Dijital Giriş</h3>
-<h3>Using Toggle Switch as Digital Input</h3>
+<h3>Üstten Basmalı Anahtar ve Potansiyometre ile Binary Counter</h3>
+<h3>Using Toggle Switch as Digital Input and Potentiometer as Analog Input</h3>
 
-<p align="justify">Bir önceki projede led'lerin yanma süresi sabitti. Burada o süreyi potansiyometreden okuduğumuz değerle doğru orantılı olacak bir şekilde ayarlıyoruz. Potansiyometre ile analog girişin kullanımı aşağıdaki kare dalga üreteci projesinde de yer alıyor.</p>
+<p align="justify">Bir önceki projede kurduğumuz ikili sayıcı devresinde led'lerin yanma süresi sabitti. Bu deneyde ilk deneyimizi bozmadan geliştiriyoruz. Üstten basmalı anahtara basıldığında sayma işleminin durmasını ve serbest bırakıldığında da sayma işleminin devam etmesini istiyoruz. Bunun için D10 pinini dijital giriş (input) olarak kullanacağız. Ayrıca potansiyometreden okunan analog giriş vasıtasıyla Arduino'ya alınan değer <b>delay()</b> fonksiyonunda kullanılarak sayıcının sayma hızını manuel olarak değiştireceğiz. Sayıcı hızı potansiyometreden okuduğumuz değerle doğru orantılı olacak. Potansiyometre ile analog girişin kullanımı aşağıdaki kare dalga üreteci projesinde de yer alıyor. İkinci deneyi izlemek için <a href="https://youtu.be/_aeHYlevhK8">tıklayınız</a>.</p>
 
 <img src="image/binary counter toggle switch.png" alt="Arduino binary counter circuit with toggle switch input." width=500 height=auto>
 
-<h3>Potansiyometre ile Analog Girişi Kullanımı (Using Analog Inputs with Potentiometer)</h3>
+<h3>Potansiyometre ile Analog Giriş Kullanımı (Using Analog Input with Potentiometer)</h3>
 
 #### Potansiyometre
 
