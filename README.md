@@ -10,7 +10,32 @@
     <li align="justify">Aşağıdaki devre şemasında <b>loop()</b> foksiyonunda {a, b, c, d, e, f, g, h} değerleri oluşturulurken % operatörünün kullanıldığı görülüyor. Bu operatör neyi temsil ediyor, yâni ne işlev görüyor? Onluk sistemde bir byte'dan büyük olmayan bir sayıyı (e.g., 237) ikili (binary) sisteme çevirdiğiniz bir örnek üzerinde açıklayınız.</li>
 </ul>
 
-<img src="image/binary counter 8 bit.png" alt="Arduino binary counter circuit." width=500 height=auto>
+<img src="image/binary-counter-8-bit.png" alt="Arduino binary counter circuit." width="500" height=auto>
+
+<img src="circuit/8-bit-binary-counter.jpg" alt="8-bit binary sayıcı" width="500" height=auto>
+
+<img src="circuit/8-bit-binary-counter-USB-powered.jpg" alt="8-bit binary sayıcı USB powered" width="500" height=auto>
+
+<b>binary-counter-8-bit-improved.ino</b>
+
+```
+void setup() {
+  for (int pin = 2; pin <= 9; pin++) {
+    pinMode(pin, OUTPUT);
+  }
+}
+
+void loop() {
+  for (byte i = 0; i < 256; i++) {
+    byte bits = i;
+    for (int pin = 2; pin <= 9; pin++) {
+      digitalWrite(pin, bits & 1);
+      bits = bits >> 1;
+    }
+    delay(250);
+  }
+}
+```
 
 <h3>Potansiyometre ile Analog Giriş Kullanımı (Using Analog Input with Potentiometer)</h3>
 
