@@ -7,10 +7,26 @@
 <h4>Örnek Sınav Soruları</h4>
 <ul>
     <li align="justify">Aşağıdaki devre şemasında <b>setup()</b> fonksiyonunda dijital pinlerin 0'dan başlayarak değil de 2'den başlayarak çıkış olarak tanımlandığını görüyoruz. İlk iki pinin dijital çıkış olarak tanımlanmaması neden dolayı olabilir?</li>
-    <li align="justify">Aşağıdaki devre şemasında <b>loop()</b> foksiyonunda {a, b, c, d, e, f, g, h} değerleri oluşturulurken % operatörü kullanıldığı görülüyor. Bu ne manaya geliyor? Onluk sistemde bir byte'dan büyük olmayan bir sayıyı (e.g., 237) ikili sisteme çevirerek örnek üzerinde açıklayınız.</li>
+    <li align="justify">Aşağıdaki devre şemasında <b>loop()</b> foksiyonunda {a, b, c, d, e, f, g, h} değerleri oluşturulurken % operatörünün kullanıldığı görülüyor. Bu operatör neyi temsil ediyor, yâni ne işlev görüyor? Onluk sistemde bir byte'dan büyük olmayan bir sayıyı (e.g., 237) ikili (binary) sisteme çevirdiğiniz bir örnek üzerinde açıklayınız.</li>
 </ul>
 
 <img src="image/binary counter 8 bit.png" alt="Arduino binary counter circuit." width=500 height=auto>
+
+<h3>Potansiyometre ile Analog Giriş Kullanımı (Using Analog Input with Potentiometer)</h3>
+
+<h4>Potansiyometre</h4>
+
+<p align="justify">Potansiyometrenin ayarlı direnç olduğunu derslerimizde görmüş olmamız lâzım. Devrelerde gerilim bölücü (voltage divider) olarak vazife gören bu devre elemanının;</p>
+<ul>
+<li align="justify">Üç bacağı olduğunu,</li>
+<li align="justify">İlk ve son bacaklarına Arduino'nun Vcc (5V) ve GND pinlerinin bağlandığını</li>
+<li align="justify">Orta bacağının Arduino'nun analog girişlerinden bir tanesine (e.g., A0) bağlandığını</li>
+<li align="justify">Analogdan dijitale çevirici (Analog to Digital Converter - ADC) aracılığıyla [0-5V] aralığında sürekli (continuous) değer alabilen analog bir sinyalin, [0-1023] aralığında bir tam sayıya (integer) dönüştürülerek ayrık (dicrete) değere dönüştürüldüğünü</li>
+</ul>
+
+<p align="justify">bilmeliyiz. Örnek bir potansiyometreyi ve yukarıda sözü geçen Arduino bağlantılarını aşağıda görebilirsiniz.</p>
+
+<img src="image/pot.jpg" alt="Potansiyometre" width=auto height=200> <img src="image/potansiyometre bağlantılar.jpg" alt="Reading pot data into Arduino via ADC." width=auto height=200>
 
 <h3>Üstten Basmalı Anahtar ve Potansiyometre ile Binary Counter</h3>
 <h3>Using Toggle Switch as Digital Input and Potentiometer as Analog Input</h3>
@@ -19,21 +35,15 @@
 
 <img src="image/binary counter toggle switch.png" alt="Arduino binary counter circuit with toggle switch input." width=500 height=auto>
 
-<h3>Potansiyometre ile Analog Giriş Kullanımı (Using Analog Input with Potentiometer)</h3>
+<h3>Geliştirilmiş İkili Sistem Sayıcı</h3>
 
-#### Potansiyometre
+<h3>Improved Binary Counter</h3>
 
-<p align="justify">Potansiyometreye ayarlı direnç dendiğinden daha önce bahsetmiştik. Bu devre elemanının;</p>
-<ul>
-<li align="justify">Üç bacağı olduğunu,</li>
-<li align="justify">İlk ve son bacaklarına Arduino'nun Vcc (5V) ve GND pinlerinin bağlandığını</li>
-<li align="justify">Orta bacağının Arduino'nun analog girişlerinden bir tanesine (e.g., A0) bağlandığını</li>
-<li align="justify">Analogdan dijitale çevirici (Analog to Digital Converter - ADC) aracılığıyla [0-5V] aralığında sürekli (continuous) değer alabilen analog bir sinyalin, [0-1023] aralığında bir tam sayıya (integer) dönüştürülerek alındığını,</li>
-</ul>
+<p align="justify">Bir önceki Arduino deneyinde kodun en sonunda yer alan <b>delay(250)</b> komutuyla ayıcı hızı 250ms'de bir artacak biçimde ayarlanmış ve böylece sayıcı 1s'de 1000 / 250 = 4 sayı ilerlemişti. Bir saniyede dört sayı ilerlerse o zaman [0-255] yâni bir byte sayma süresi hemen hemen 1dk civarı (biraz fazla) olacaktır.</p>
 
-<p align="justify">görmüştük. Bir potansiyometreyi ve yukarıda listelenen Arduino bağlantılarını aşağıda görebilirsiniz.</p>
+<p align="justify">Bu deneyde bir potansiyometre kullanarak sayıcı hızını kendimiz manuel ayarlamak istiyoruz. Böylece potansiyometrenin üzerindeki ayarlanabilen dönen kısmı kullanarak sayıcı hızını artırıp azaltabileceğiz. Potansiyometreyi Arduino'ya analog girişlerden birinden bağlayacağız.</p>
 
-<img src="image/pot.jpg" alt="Potansiyometre" width=auto height=200> <img src="image/potansiyometre bağlantılar.jpg" alt="Reading pot data into Arduino via ADC." width=auto height=200>
+<p align="justify">Ayrıca sayma işlemi gerçekleştirilirken üzerine basacağımız bir anahtar ile sayma işlemini durdurmak istiyoruz. Tekrar bastığımızda sayma işlemine devam etmesini istiyoruz. Bunun için dijital pinlerden birini giriş (input) olarak kullanacağımızı biliyoruz. Ancak bu düz mantık olmayabilir. Bu noktada karşımıza dijital pinden giriş olarak logic 0 ve logic 1 değererini okumada kullanmamız gereken pull-up ve pull-down rezistör kavramları geliyor. Bu donanımsal (devre analizi/tasarımı) ile ilgili ihtiyaç duyulan blgiye ek olarak daha ileri seviye bir konu olan kesme (interrupt) kavramını da bilmemiz gerekiyor. İngilizce'de INTERRUPT SERVICE ROUTINE (ISR) olarak bilinen kesme yardımyla yukarıda bahsettiğimiz anahtara basınca sayacı durdurma ve (bıraktıktan sonra) tekrar basınca bu sefer de saymaya devam etme işini kolayca yapabiliriz. Özellikle bu kesme konusunda ChatGPT gibi bize kod yazma konusunda yardımcı olabilecek bir yapay zekâdan faydalanacağız.</p>
 
 <h3>Kare Dalga Üreteci (Square Wave Generator)</h3>
 
