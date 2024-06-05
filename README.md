@@ -51,14 +51,14 @@ void loop() {
 
 <p align="justify">bilmeliyiz. Örnek bir potansiyometreyi ve yukarıda sözü geçen Arduino bağlantılarını aşağıda görebilirsiniz.</p>
 
-<img src="image/pot.jpg" alt="Potansiyometre" width=auto height=200> <img src="image/potansiyometre bağlantılar.jpg" alt="Reading pot data into Arduino via ADC." width=auto height=200>
+<img src="image/pot-Arduino-connections.jpg" alt="Potansiyometre" width=auto height=250>
 
-<h3>Üstten Basmalı Anahtar ve Potansiyometre ile Binary Counter</h3>
+<h3>Binary Counter, Üstten basmalı anahtar ve Potansiyometre</h3>
 <h3>Using Toggle Switch as Digital Input and Potentiometer as Analog Input</h3>
 
 <p align="justify">Bir önceki projede kurduğumuz ikili sayıcı devresinde led'lerin yanma süresi sabitti. Bu deneyde ilk deneyimizi bozmadan geliştiriyoruz. Üstten basmalı anahtara basıldığında sayma işleminin durmasını ve serbest bırakıldığında da sayma işleminin devam etmesini istiyoruz. Bunun için D10 pinini dijital giriş (input) olarak kullanacağız. Ayrıca potansiyometreden okunan analog giriş vasıtasıyla Arduino'ya alınan değer <b>delay()</b> fonksiyonunda kullanılarak sayıcının sayma hızını manuel olarak değiştireceğiz. Sayıcı hızı potansiyometreden okuduğumuz değerle doğru orantılı olacak. Potansiyometre ile analog girişin kullanımı aşağıdaki kare dalga üreteci projesinde de yer alıyor. İkinci deneyi izlemek için <a href="https://youtu.be/_aeHYlevhK8">tıklayınız</a>.</p>
 
-<img src="image/binary counter toggle switch.png" alt="Arduino binary counter circuit with toggle switch input." width=500 height=auto>
+<img src="image/bcounter-tswitch-pot.png" alt="Binary counter, toggle SW and pot" width=500 height=auto>
 
 <h3>Geliştirilmiş İkili Sistem Sayıcı</h3>
 
@@ -68,15 +68,15 @@ void loop() {
 
 <p align="justify">Bu deneyde bir potansiyometre kullanarak sayıcı hızını kendimiz manuel ayarlamak istiyoruz. Böylece potansiyometrenin üzerindeki ayarlanabilen dönen kısmı kullanarak sayıcı hızını artırıp azaltabileceğiz. Potansiyometreyi Arduino'ya analog girişlerden birinden bağlayacağız.</p>
 
-<p align="justify">Ayrıca sayma işlemi gerçekleştirilirken üzerine basacağımız bir anahtar ile sayma işlemini durdurmak istiyoruz. Tekrar bastığımızda sayma işlemine devam etmesini istiyoruz. Bunun için dijital pinlerden birini giriş (input) olarak kullanacağımızı biliyoruz. Ancak bu düz mantık olmayabilir. Bu noktada karşımıza dijital pinden giriş olarak logic 0 ve logic 1 değererini okumada kullanmamız gereken pull-up ve pull-down rezistör kavramları geliyor. Bu donanımsal (devre analizi/tasarımı) ile ilgili ihtiyaç duyulan blgiye ek olarak daha ileri seviye bir konu olan kesme (interrupt) kavramını da bilmemiz gerekiyor. İngilizce'de INTERRUPT SERVICE ROUTINE (ISR) olarak bilinen kesme yardımyla yukarıda bahsettiğimiz anahtara basınca sayacı durdurma ve (bıraktıktan sonra) tekrar basınca bu sefer de saymaya devam etme işini kolayca yapabiliriz. Özellikle bu kesme konusunda ChatGPT gibi bize kod yazma konusunda yardımcı olabilecek bir yapay zekâdan faydalanacağız.</p>
+<p align="justify">Ayrıca sayma işlemi gerçekleştirilirken üzerine basacağımız bir anahtar ile sayma işlemini durdurmak istiyoruz. Tekrar bastığımızda sayma işlemine devam etmesini istiyoruz. Bunun için dijital pinlerden birini giriş (input) olarak kullanacağımızı biliyoruz. Ancak bu düz mantık olmayabilir. Bu noktada karşımıza dijital pinden giriş olarak logic 0 ve logic 1 değerlerini okumada kullanmamız gereken pull-up ve pull-down rezistör kavramları geliyor. Bu donanımsal (devre analizi/tasarımı) ile ilgili ihtiyaç duyulan blgiye ek olarak daha ileri seviye bir konu olan kesme (interrupt) kavramını da bilmemiz gerekiyor. İngilizce'de INTERRUPT SERVICE ROUTINE (ISR) olarak bilinen kesme yardımyla yukarıda bahsettiğimiz anahtara basınca sayacı durdurma ve (bıraktıktan sonra) tekrar basınca bu sefer de saymaya devam etme işini kolayca yapabiliriz. Özellikle bu kesme konusunda ChatGPT gibi bize kod yazma konusunda yardımcı olabilecek bir yapay zekâdan faydalanacağız.</p>
 
 <h3>Kare Dalga Üreteci (Square Wave Generator)</h3>
 
 <p align="justify">Bu <a href="https://youtu.be/6WdBsv1CyCg">deneyimizde</a> Arduino dijital çıkışlarından 13 no'lu pin olan D13'e hoparlör (veya buzzer) bağlayarak görev süresi (duty cycle) %50 olan frekansı potansiyometre tarafından manuel olarak ayarlanan kare dalga ürettik. Bu sinyali üstten basmalı anahtara (toggle switch) bastığımızda işitirken osiloskop ekranında aşağıda görüldüğü gibi iki farklı hâlde görüntüledik: a) Üstten basmalı anahtara basılmadığı (açık devre) durumunda, b) Üstten basmalı anahtara basıldığında (kapalı devre). Bu farklılığın açıklaması için bu <a href="https://www.youtube.com/watch?v=YVkS6jyvlRg">videoyu</a> izleyiniz.</p>
 
-<img src="image/square_wave_oscilloscope.jpg" alt="Osiloskop ekranında kare dalgalar" width="600" height=auto>
+<img src="image/square-wave-generator.png" alt="Osiloskop ekranında kare dalgalar" width="600" height=auto>
 
-<img src="image/square wave generator.png" alt="Sqare wave generator with Arduino." width=500 height=auto>
+<img src="image/scope-square-wave.jpg" alt="Sqare wave generator with Arduino." width=500 height=auto>
 
 <h3>Joystick ile Fırçasız Motor Manuel Hız Kontrolü (PWM sinyali ile)</h3>
 
@@ -108,7 +108,7 @@ void loop() {
 
 <p align="justify">MPU6050 sensörü verisini Arduino'ya <a href="https://github.com/tockn/MPU6050_tockn" target="_blank">MPU6050_tockn</a> kütüphanesi yardımıyla okuyup Euler açılarını Arduino'nun seri port ekranında görüntüledik. Bu kütüphaneden esinlenerek bazı değişik özellikler ekleyip (e.g., sensör örnekleme frekansını ayarlama seçeneği, ivmemetre ve jiroskop verisi hassasiyeti ve max-min ölçüm değerleri) kendi kütüphanemiz olan <a href="https://github.com/mtahakoroglu/MPU6050_ZUPT" target="_blank">MPU6050_ZUPT</a> kütüphanesini oluşturduk. Bu kütüphaneye yapay zekâ yardımıyla yazdırdığımız Python kodlarını da ekleyerek MPU6050 verilerini gerçek zamanda <b>pygame</b> ve <b>matplotlib</b> paketleriyle <a href="https://www.youtube.com/watch?v=-zqW5ccxTFk">görselleştirdik</a>.</p>
 
-<img src="image/arduino_mpu6050_electronoobs.png" alt="MPU6050 - Arduino connections" width=500 height=auto>
+<img src="image/mpu6050-arduino-connections.png" alt="MPU6050 - Arduino connections" width=500 height=auto>
 
 <h3>MPU6050 ile hesaplanan yunuslama açısı ile fırçasız motor hız kontrolü (Controlling brushless motor speed using pitch angle estimated with MPU6050)</h3>
 
