@@ -16,6 +16,8 @@
 
 <img src="circuit/8-bit-binary-counter-USB-powered.jpg" alt="8-bit binary sayıcı USB powered" width="500" height=auto>
 
+Deneyin bir başka videosunu izlemek için <a href="https://youtu.be/cvJbMj2xaXs">tıklayınız</a>.
+
 <b>binary-counter-8-bit-improved.ino</b>
 
 ```
