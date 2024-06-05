@@ -70,17 +70,17 @@ void loop() {
 
 <p align="justify">Ayrıca sayma işlemi gerçekleştirilirken üzerine basacağımız bir anahtar ile sayma işlemini durdurmak istiyoruz. Tekrar bastığımızda sayma işlemine devam etmesini istiyoruz. Bunun için dijital pinlerden birini giriş (input) olarak kullanacağımızı biliyoruz. Ancak bu düz mantık olmayabilir. Bu noktada karşımıza dijital pinden giriş olarak logic 0 ve logic 1 değerlerini okumada kullanmamız gereken pull-up ve pull-down rezistör kavramları geliyor. Bu donanımsal (devre analizi/tasarımı) ile ilgili ihtiyaç duyulan blgiye ek olarak daha ileri seviye bir konu olan kesme (interrupt) kavramını da bilmemiz gerekiyor. İngilizce'de INTERRUPT SERVICE ROUTINE (ISR) olarak bilinen kesme yardımyla yukarıda bahsettiğimiz anahtara basınca sayacı durdurma ve (bıraktıktan sonra) tekrar basınca bu sefer de saymaya devam etme işini kolayca yapabiliriz. Özellikle bu kesme konusunda ChatGPT gibi bize kod yazma konusunda yardımcı olabilecek bir yapay zekâdan faydalanacağız.</p>
 
-<img src="circuit/8-bit-binary-counter-pbswitch-pot.jpg" alt="Binary counter with push-button switch and potentiometer" width="500" height=auto>
+<img src="circuit/8-bit-binary-counter-pbswitch-pot.jpg" alt="Binary counter with push-button switch and potentiometer" width="400" height=auto>
 
 <h3>Kare Dalga Üreteci (Square Wave Generator)</h3>
 
 <p align="justify">Bu <a href="https://youtu.be/6WdBsv1CyCg">deneyimizde</a> Arduino dijital çıkışlarından 13 no'lu pin olan D13'e hoparlör (veya buzzer) bağlayarak görev süresi (duty cycle) %50 olan frekansı potansiyometre tarafından manuel olarak ayarlanan kare dalga ürettik.
 
-<img src="image/square-wave-generator.png" alt="Osiloskop ekranında kare dalgalar" width="600" height=auto>
+<img src="image/square-wave-generator.png" alt="Osiloskop ekranında kare dalgalar" width="500" height=auto>
 
 Bu sinyali üstten basmalı anahtara (toggle switch) bastığımızda işitirken osiloskop ekranında aşağıda görüldüğü gibi iki farklı hâlde görüntüledik: a) Üstten basmalı anahtara basılmadığı (açık devre) durumunda, b) Üstten basmalı anahtara basıldığında (kapalı devre). Bu farklılığın açıklaması için bu <a href="https://www.youtube.com/watch?v=YVkS6jyvlRg">videoyu</a> izleyiniz.</p>
 
-<img src="image/scope-square-wave.jpg" alt="Sqare wave generator with Arduino." width=500 height=auto>
+<img src="image/scope-square-wave.jpg" alt="Sqare wave generator with Arduino." width=600 height=auto>
 
 Deneyin bir başka videosu için <a href="https://youtu.be/1PVWc9H5WxQ">tıklayınız</a>.
 
