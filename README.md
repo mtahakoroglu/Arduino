@@ -1,16 +1,16 @@
-## Arduino Deneyleri ve Projeleri
-### İkili sistem sayıcı (dijital pinleri çıkış olarak kullanma)
-### Binary Counter (using digital pins as output)
+<h2>EEM 216 /Mikroişlemciler (Mikrodenetleyiciler - ARDUINO)</h2>
+<h3>İkili sistem sayıcı (dijital pinleri çıkış olarak kullanma)</h3>
+<h3>Binary Counter (using digital pins as output)</h3>
 
-<p align="justify">Derste <b>binary</b> kelimesinin ikili sistem yâni 1 ve 0'lardan oluşan sistem olduğunu görmüştük. Bu kavrama sayısal tasarım (mantıksal devre tasarımı - logic circuits) dersinde True - False veya logic 1 - logic 0 olarak, Arduino'nun kendi ekosisteminde de özel tanımlanmış anahtar kelimeler olan HIGH-LOW ifadeleri şeklinde karşılaşabilirsiniz. Buna Boolean cebir (Boolean algebra) deniyor. Yapılan ilk deneyi izlemek için <a href="https://youtu.be/s3wDtmzlwCw">tıklayınız.</a></p>
+<p align="justify">Derste <b>binary</b> kelimesinin ikili sistem (yâni 1 ve 0'lardan oluşan sistem) olduğunu göreceğiz. Bu kavramla sayısal tasarım (mantıksal devre tasarımı - logic circuits) dersinde <b>True</b>-<b>False</b> veya logic 0 - logic 1 olarak, Arduino'nun kendi ekosisteminde de özel tanımlanmış anahtar kelimeler olan <b>HIGH</b>-LOW</b> ifadeleri şeklinde karşılaşabilirsiniz. Buna <b>Boolean cebir (Boolean algebra)</b> deniyor. Yapılan ilk deneyi izlemek için <a href="https://youtu.be/s3wDtmzlwCw">tıklayınız.</a></p>
 
 <h4>Örnek Sınav Soruları</h4>
 <ul>
-    <li align="justify">Aşağıdaki devre şemasında <b>setup()</b> fonksiyonunda dijital pinlerin 0'dan başlayarak değil de 2'den başlayarak çıkış olarak tanımlandığını görüyoruz. İlk iki pinin dijital çıkış olarak tanımlanmaması neden dolayı olabilir?</li>
+    <li align="justify">Aşağıdaki devre şemasında ve verilen kodda <b>setup()</b> fonksiyonunda dijital pinlerin 0'dan başlayarak değil de 2'den başlayarak çıkış olarak tanımlandığını görüyoruz. İlk iki pinin dijital çıkış olarak tanımlanmamasının sebebi ne olabilir?</li>
     <li align="justify">Aşağıdaki devre şemasında <b>loop()</b> foksiyonunda {a, b, c, d, e, f, g, h} değerleri oluşturulurken % operatörünün kullanıldığı görülüyor. Bu operatör neyi temsil ediyor, yâni ne işlev görüyor? Onluk sistemde bir byte'dan büyük olmayan bir sayıyı (e.g., 237) ikili (binary) sisteme çevirdiğiniz bir örnek üzerinde açıklayınız.</li>
 </ul>
 
-<img src="image/binary-counter-8-bit.png" alt="Arduino binary counter circuit." width="500" height=auto>
+<img src="image/binary-counter-8-bit.png" alt="Arduino binary counter circuit" width="500" height=auto>
 
 <img src="circuit/8-bit-binary-counter.jpg" alt="8-bit binary sayıcı" width="500" height=auto>
 
@@ -37,19 +37,19 @@ void loop() {
 }
 ```
 
-<h3>Potansiyometre ile Analog Giriş Kullanımı (Using Analog Input with Potentiometer)</h3>
+<h3>Potansiyometre Kullanımı (Analog Giriş)</h3>
+<h3>Using Potentiometer (Anaog Input)</h3>
 
 <h4>Potansiyometre</h4>
 
-<p align="justify">Potansiyometrenin ayarlı direnç olduğunu derslerimizde görmüş olmamız lâzım. Devrelerde gerilim bölücü (voltage divider) olarak vazife gören bu devre elemanının;</p>
+<p align="justify">Potansiyometrenin ayarlı direnç olduğunu daha önceki bölüm derslerimizde görmüş olmamız lâzım. Devrelerde gerilim bölücü (voltage divider) olarak vazife gören bu devre elemanının;</p>
 <ul>
 <li align="justify">Üç bacağı olduğunu,</li>
-<li align="justify">İlk ve son bacaklarına Arduino'nun Vcc (5V) ve GND pinlerinin bağlandığını</li>
+<li align="justify">İlk ve son bacaklarına Arduino'nun V<sub>cc</sub> +5V ve GND pinlerinin bağlandığını,</li>
 <li align="justify">Orta bacağının Arduino'nun analog girişlerinden bir tanesine (e.g., A0) bağlandığını</li>
-<li align="justify">Analogdan dijitale çevirici (Analog to Digital Converter - ADC) aracılığıyla [0-5V] aralığında sürekli (continuous) değer alabilen analog bir sinyalin, [0-1023] aralığında bir tam sayıya (integer) dönüştürülerek ayrık (dicrete) değere dönüştürüldüğünü</li>
 </ul>
 
-<p align="justify">bilmeliyiz. Örnek bir potansiyometreyi ve yukarıda sözü geçen Arduino bağlantılarını aşağıda görebilirsiniz.</p>
+<p align="justify">bilmeliyiz. Analogdan dijitale çevirici (Analog to Digital Converter - ADC) aracılığıyla [0-5V] aralığında sürekli (continuous) değer alan analog sinyalin (potansiyometrenin orta bacağı), Arduino tarafından [0-1023] aralığında bir tam sayıya (integer) dönüştürülerek ayrık (dicrete) bir değer aldığını anlamalıyız. Örnek bir potansiyometre ve anlatılan Arduino bağlantılarını aşağıda görebilirsiniz.</p>
 
 <img src="image/pot-Arduino-connections.jpg" alt="Potansiyometre" width=auto height=200>
 
@@ -78,11 +78,11 @@ void loop() {
 
 <img src="image/square-wave-generator.png" alt="Osiloskop ekranında kare dalgalar" width="500" height=auto>
 
-Bu sinyali üstten basmalı anahtara (toggle switch) bastığımızda işitirken osiloskop ekranında aşağıda görüldüğü gibi iki farklı hâlde görüntüledik: a) Üstten basmalı anahtara basılmadığı (açık devre) durumunda, b) Üstten basmalı anahtara basıldığında (kapalı devre). Bu farklılığın açıklaması için bu <a href="https://www.youtube.com/watch?v=YVkS6jyvlRg">videoyu</a> izleyiniz.</p>
+Bu sinyali üstten basmalı anahtara (push-button switch) bastığımızda işitirken osiloskop ekranında aşağıda görüldüğü gibi iki farklı hâlde görüntüledik: a) Üstten basmalı anahtara basılmadığı (açık devre) durumunda, b) Üstten basmalı anahtara basıldığında (kapalı devre). Bu farklılığın açıklaması için bu <a href="https://www.youtube.com/watch?v=YVkS6jyvlRg">videoyu</a> izleyiniz.</p>
 
 <img src="image/scope-square-wave.jpg" alt="Sqare wave generator with Arduino." width=600 height=auto>
 
-Deneyin bir başka videosu için <a href="https://youtu.be/1PVWc9H5WxQ">tıklayınız</a>.
+Deneyin push-button switch kullanılmadan yapılan bir başka videosu için <a href="https://youtu.be/1PVWc9H5WxQ">tıklayınız</a>.
 
 <h3>Joystick ile Fırçasız Motor Manuel Hız Kontrolü (PWM sinyali ile)</h3>
 
